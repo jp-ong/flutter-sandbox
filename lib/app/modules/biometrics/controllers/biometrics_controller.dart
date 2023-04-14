@@ -23,7 +23,7 @@ class BiometricsController extends GetxController {
 
   Future<void> checkBiometricSupport() async {
     isCheckingDevice.value = true;
-    await delay();
+    await delay(seconds: 1);
 
     auth.isDeviceSupported().then((bool isSupported) {
       supportState =
@@ -34,7 +34,7 @@ class BiometricsController extends GetxController {
 
   Future<void> checkBiometrics() async {
     isCheckingBiometrics.value = true;
-    await delay(seconds: 4);
+    await delay(seconds: 2);
     try {
       canCheckBiometrics = await auth.canCheckBiometrics;
     } on PlatformException {
@@ -46,7 +46,7 @@ class BiometricsController extends GetxController {
 
   void getAvailableBiometrics() async {
     isListingBiometrics.value = true;
-    await delay();
+    await delay(seconds: 3);
     try {
       availableBiometrics = await auth.getAvailableBiometrics();
     } on PlatformException {
@@ -91,6 +91,8 @@ class BiometricsController extends GetxController {
       checkBiometrics(),
     ]);
 
-    authenticate();
+    if (supportState == SupportState.supported && canCheckBiometrics) {
+      authenticate();
+    }
   }
 }
