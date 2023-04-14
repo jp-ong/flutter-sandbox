@@ -1,16 +1,27 @@
-# flutter_sandbox
+# Flutter Sandbox
 
-A new Flutter project.
+Project for testing Flutter features and implementations.
 
-## Getting Started
+## Packages
+- `get`
+- `local_auth`
+  - `local_auth_android`
+  - `local_auth_ios`
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+### Code Structure
+- This project uses the GetX code structure.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Theming
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Light theme
+- Dark theme
+- Theme toggler
+
+### Biometrics Authentication
+
+- Local biometrics authentication using `local_auth` package with GetX code structure.
+
+
+
