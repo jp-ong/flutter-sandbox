@@ -2,11 +2,27 @@
 
 Project for testing Flutter features and implementations.
 
+
+<details>
+  <summary>
+    <b>Table of Contents</b>
+  </summary>
+  <ul>
+    <li>Packages</li>
+    <li>
+      Features
+      <ul>
+        <li>Code Structure</li>
+        <li>Theming</li>
+        <li>Biometrics Authentication</li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
 ## Packages
-- `get`
-- `local_auth`
-  - `local_auth_android`
-  - `local_auth_ios`
+- [get](https://pub.dev/packages/get)
+- [local_auth](https://pub.dev/packages/local_auth)
 
 ## Features
 
