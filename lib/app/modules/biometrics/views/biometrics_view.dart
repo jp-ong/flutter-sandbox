@@ -34,8 +34,8 @@ class BiometricsView extends GetView<BiometricsController> {
                         color: controller.authorized == 'Authorized'
                             ? Colors.green
                             : controller.authorized == 'Authenticating'
-                                ? Colors.blue
-                                : Colors.red,
+                                ? Get.theme.colorScheme.primary
+                                : Get.theme.colorScheme.error,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -57,7 +57,7 @@ class BiometricsView extends GetView<BiometricsController> {
                 ),
                 iconSize: 128,
                 onPressed: () => controller.authenticate(),
-                color: Colors.blue,
+                color: Get.theme.colorScheme.primary,
               ),
               const Divider(height: 80),
               RichText(
@@ -73,7 +73,7 @@ class BiometricsView extends GetView<BiometricsController> {
                       style: TextStyle(
                         color: controller.supportState == SupportState.supported
                             ? Colors.green
-                            : Colors.red,
+                            : Get.theme.colorScheme.error,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -114,7 +114,7 @@ class BiometricsView extends GetView<BiometricsController> {
                       style: TextStyle(
                         color: controller.canCheckBiometrics
                             ? Colors.green
-                            : Colors.red,
+                            : Get.theme.colorScheme.error,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
