@@ -56,7 +56,9 @@ class BiometricsView extends GetView<BiometricsController> {
                   child: const Icon(Icons.fingerprint),
                 ),
                 iconSize: 128,
-                onPressed: () => controller.authenticate(),
+                onPressed: controller.supportState == SupportState.supported
+                    ? () => controller.authenticate()
+                    : null,
                 color: Get.theme.colorScheme.primary,
               ),
               const Divider(height: 80),
