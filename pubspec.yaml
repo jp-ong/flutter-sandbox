@@ -8,6 +8,9 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.6.5
+  local_auth: 2.1.6
+  local_auth_ios: 1.1.1
+  local_auth_android: 1.0.21
   flutter: 
     sdk: flutter
 
