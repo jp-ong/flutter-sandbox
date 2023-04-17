@@ -12,7 +12,6 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sandbox'),
-        centerTitle: true,
       ),
       body: ListView(
         padding: const EdgeInsets.all(8),
@@ -22,7 +21,7 @@ class HomeView extends GetView<HomeController> {
             child: const Text('Biometrics'),
           ),
           OutlinedButton(
-            onPressed: () => Get.toNamed(Routes.FORMS),
+            onPressed: () => Get.toNamed(Routes.CREDENTIALS_FORM),
             child: const Text('Forms'),
           ),
         ],
