@@ -20,6 +20,7 @@ class BiometricsController extends GetxController {
   RxBool isCheckingDevice = false.obs;
   RxBool isCheckingBiometrics = false.obs;
   RxBool isListingBiometrics = false.obs;
+  bool stopBiometrics = false;
 
   Future<void> checkBiometricSupport() async {
     isCheckingDevice.value = true;
@@ -91,8 +92,15 @@ class BiometricsController extends GetxController {
       checkBiometrics(),
     ]);
 
-    if (supportState == SupportState.supported && canCheckBiometrics) {
+    if (supportState == SupportState.supported &&
+        canCheckBiometrics &&
+        !stopBiometrics) {
       authenticate();
     }
+  }
+
+  @override
+  void onClose() async {
+    stopBiometrics = true;
   }
 }
