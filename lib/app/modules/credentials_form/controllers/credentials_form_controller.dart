@@ -17,6 +17,10 @@ class CredentialsFormController extends GetxController {
   RxBool hasSpecialChar = false.obs;
   RxBool isPasswordChecklistVisible = false.obs;
 
+  RxBool isUsernameValid = false.obs;
+  RxBool isEmailValid = false.obs;
+  RxBool isFormClean = false.obs;
+
   void onPasswordChange(String password) {
     hasMinChar.value = password.length >= 8;
     hasUppercase.value = password.contains(RegExp(r'[A-Z]'));
@@ -26,12 +30,27 @@ class CredentialsFormController extends GetxController {
     isPasswordChecklistVisible.value = true;
   }
 
+  void onFormChange() {
+    isFormClean.value = isUsernameValid.value &&
+        isEmailValid.value &&
+        isPasswordValid() &&
+        passwordController.value == passwordConfirmController.value;
+  }
+
+  void validateUsername(bool isValid) {
+    isUsernameValid.value = isValid;
+  }
+
+  void validateEmail(bool isValid) {
+    isEmailValid.value = isValid;
+  }
+
   bool isPasswordValid() {
-    return hasMinChar.value &&
-        hasUppercase.value &&
-        hasLowercase.value &&
-        hasNumber.value &&
-        hasSpecialChar.value;
+    return hasMinChar.isTrue &&
+        hasUppercase.isTrue &&
+        hasLowercase.isTrue &&
+        hasNumber.isTrue &&
+        hasSpecialChar.isTrue;
   }
 
   void submitForm() {

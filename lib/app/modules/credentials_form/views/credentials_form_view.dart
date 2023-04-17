@@ -18,24 +18,44 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
           centerTitle: true,
         ),
         body: Form(
+          onChanged: () => controller.onFormChange(),
           key: controller.credentialInfoKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          child: ListView(
-            padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              usernameField(),
-              formGap(),
-              emailField(),
-              formGap(),
-              passwordField(),
-              passwordChecklist(),
-              formGap(),
-              passwordConfirmField(),
-              formGap(),
-              ElevatedButton(
-                onPressed: () => controller.submitForm(),
-                child: const Text('Continue'),
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.all(16),
+                  children: [
+                    usernameField(),
+                    formGap(),
+                    emailField(),
+                    formGap(),
+                    passwordField(),
+                    passwordChecklist(),
+                    formGap(),
+                    passwordConfirmField(),
+                  ],
+                ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Obx(
+                        () => ElevatedButton(
+                          onPressed: controller.isFormClean.isTrue
+                              ? () => controller.submitForm()
+                              : null,
+                          child: const Text('Continue'),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -57,9 +77,9 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
             LengthLimitingTextInputFormatter(18),
           ],
           validator: (value) {
-            return value!.isEmpty || value.length < 4
-                ? 'Username must be 4 to 18 characters'
-                : null;
+            bool isInvalid = value!.isEmpty || value.length < 4;
+            controller.validateUsername(!isInvalid);
+            return isInvalid ? 'Username must be 4 to 18 characters' : null;
           },
         ),
       ],
@@ -76,8 +96,11 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
           controller: controller.emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(),
-          validator: (value) =>
-              value!.isEmpty || !value.isEmail ? 'Email must be valid' : null,
+          validator: (value) {
+            bool isInvalid = value!.isEmpty || value.length < 4;
+            controller.validateEmail(!isInvalid);
+            return isInvalid ? 'Email must be valid' : null;
+          },
         ),
       ],
     );
