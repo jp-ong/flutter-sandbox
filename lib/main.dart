@@ -37,6 +37,14 @@ void main() {
         fontSize: 16,
         color: Colors.black,
       ),
+      displayMedium: TextStyle(
+        fontSize: 14,
+        color: Colors.black87,
+      ),
+      displaySmall: TextStyle(
+        fontSize: 12,
+        color: Colors.black87,
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -68,7 +76,7 @@ void main() {
       isDense: true,
       contentPadding: EdgeInsets.fromLTRB(12, 12, 12, 12),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
+        borderRadius: BorderRadius.all(Radius.circular(4)),
       ),
     ),
   );

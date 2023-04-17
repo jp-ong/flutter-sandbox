@@ -7,6 +7,7 @@ class CredentialsFormController extends GetxController {
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmController = TextEditingController();
 
   void submitForm() {
     if (credentialInfoKey.currentState!.validate()) {
