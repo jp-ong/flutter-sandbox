@@ -44,7 +44,7 @@ class BiometricsController extends GetxController {
     }
   }
 
-  void getAvailableBiometrics() async {
+  Future<void> getAvailableBiometrics() async {
     isListingBiometrics.value = true;
     await delay(seconds: 3);
     try {
