@@ -14,11 +14,18 @@ class HomeView extends GetView<HomeController> {
         title: const Text('Sandbox'),
         centerTitle: true,
       ),
-      body: Center(
-        child: OutlinedButton(
-          onPressed: () => Get.toNamed(Routes.BIOMETRICS),
-          child: const Text('Biometrics'),
-        ),
+      body: ListView(
+        padding: const EdgeInsets.all(8),
+        children: [
+          OutlinedButton(
+            onPressed: () => Get.toNamed(Routes.BIOMETRICS),
+            child: const Text('Biometrics'),
+          ),
+          OutlinedButton(
+            onPressed: () => Get.toNamed(Routes.FORMS),
+            child: const Text('Forms'),
+          ),
+        ],
       ),
     );
   }

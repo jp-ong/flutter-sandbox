@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/biometrics/bindings/biometrics_binding.dart';
 import '../modules/biometrics/views/biometrics_view.dart';
+import '../modules/forms/bindings/forms_binding.dart';
+import '../modules/forms/views/forms_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 
@@ -22,6 +24,11 @@ class AppPages {
       name: _Paths.BIOMETRICS,
       page: () => const BiometricsView(),
       binding: BiometricsBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORMS,
+      page: () => const FormsView(),
+      binding: FormsBinding(),
     ),
   ];
 }
