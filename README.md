@@ -39,5 +39,9 @@ Project for testing Flutter features and implementations.
 
 - Local biometrics authentication using `local_auth` package with GetX code structure.
 
+### Form Validation
+
+- Implementations of `TextFormField` and its validations.
+
 
 
