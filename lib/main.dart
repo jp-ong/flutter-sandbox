@@ -31,7 +31,8 @@ void main() {
       ),
       labelMedium: TextStyle(
         fontSize: 14,
-        color: Colors.black54,
+        color: Color.fromARGB(255, 100, 0, 255),
+        fontWeight: FontWeight.w700,
       ),
       bodyMedium: TextStyle(
         fontSize: 16,

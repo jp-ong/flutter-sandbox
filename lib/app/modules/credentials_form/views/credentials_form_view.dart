@@ -10,31 +10,34 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Credentials'),
-        centerTitle: true,
-      ),
-      body: Form(
-        key: controller.credentialInfoKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            usernameField(),
-            formGap(),
-            emailField(),
-            formGap(),
-            passwordField(),
-            passwordChecklist(),
-            formGap(),
-            passwordConfirmField(),
-            formGap(),
-            ElevatedButton(
-              onPressed: () => controller.submitForm(),
-              child: const Text('Continue'),
-            ),
-          ],
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Credentials'),
+          centerTitle: true,
+        ),
+        body: Form(
+          key: controller.credentialInfoKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              usernameField(),
+              formGap(),
+              emailField(),
+              formGap(),
+              passwordField(),
+              passwordChecklist(),
+              formGap(),
+              passwordConfirmField(),
+              formGap(),
+              ElevatedButton(
+                onPressed: () => controller.submitForm(),
+                child: const Text('Continue'),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -73,9 +76,8 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
           controller: controller.emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(),
-          validator: (value) => value!.isEmpty || !value.isEmail
-              ? 'Valid email is required'
-              : null,
+          validator: (value) =>
+              value!.isEmpty || !value.isEmail ? 'Email must be valid' : null,
         ),
       ],
     );
@@ -91,7 +93,9 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
           controller: controller.passwordController,
           decoration: const InputDecoration(),
           obscureText: true,
-          validator: (value) => value!.isEmpty ? 'Password is required' : null,
+          validator: (value) =>
+              !controller.isPasswordValid() ? 'Password must be valid' : null,
+          onChanged: (value) => controller.onPasswordChange(value),
         ),
       ],
     );
@@ -104,7 +108,7 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
         Text('Re-enter Password', style: Get.textTheme.labelMedium),
         const SizedBox(height: 4),
         TextFormField(
-          controller: controller.passwordController,
+          controller: controller.passwordConfirmController,
           decoration: const InputDecoration(),
           obscureText: true,
           validator: (value) => controller.passwordConfirmController.value !=
@@ -117,17 +121,50 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
   }
 
   Widget passwordChecklist() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        formGap(),
-        passwordChecklistItem('At least 8 characters', false),
-        passwordChecklistItem('At least one uppercase letter', true),
-        passwordChecklistItem('At least one lowercase letter', true),
-        passwordChecklistItem('At least one number', true),
-        passwordChecklistItem(
-            'At least on special character (e.g. !@#\$%)', true),
-      ],
+    return Obx(
+      () => AnimatedOpacity(
+        duration: const Duration(milliseconds: 500),
+        opacity: controller.isPasswordChecklistVisible.value ? 1.0 : 0.0,
+        child: Visibility(
+          visible: controller.isPasswordChecklistVisible.value,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              formGap(),
+              Obx(
+                () => passwordChecklistItem(
+                  'At least 8 characters',
+                  controller.hasMinChar.value,
+                ),
+              ),
+              Obx(
+                () => passwordChecklistItem(
+                  'At least one uppercase letter',
+                  controller.hasUppercase.value,
+                ),
+              ),
+              Obx(
+                () => passwordChecklistItem(
+                  'At least one lowercase letter',
+                  controller.hasLowercase.value,
+                ),
+              ),
+              Obx(
+                () => passwordChecklistItem(
+                  'At least one number',
+                  controller.hasNumber.value,
+                ),
+              ),
+              Obx(
+                () => passwordChecklistItem(
+                  'At least on special character (e.g. !@#\$%)',
+                  controller.hasSpecialChar.value,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
