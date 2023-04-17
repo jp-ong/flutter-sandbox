@@ -46,11 +46,13 @@ class CredentialsFormController extends GetxController {
   }
 
   bool isPasswordValid() {
-    return hasMinChar.isTrue &&
+    bool isValid = hasMinChar.isTrue &&
         hasUppercase.isTrue &&
         hasLowercase.isTrue &&
         hasNumber.isTrue &&
         hasSpecialChar.isTrue;
+    isPasswordChecklistVisible.value = !isValid;
+    return isValid;
   }
 
   void submitForm() {
