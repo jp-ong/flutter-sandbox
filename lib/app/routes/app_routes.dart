@@ -13,6 +13,7 @@ abstract class Routes {
   static const ONBOARDING_1 = _Paths.ONBOARDING + _Paths.ONBOARDING_1;
   static const ONBOARDING_2 = _Paths.ONBOARDING + _Paths.ONBOARDING_2;
   static const ONBOARDING_END = _Paths.ONBOARDING + _Paths.ONBOARDING_END;
+  static const ONBOARDING_START = _Paths.ONBOARDING + _Paths.ONBOARDING_START;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const ONBOARDING_1 = '/onboarding-1';
   static const ONBOARDING_2 = '/onboarding-2';
   static const ONBOARDING_END = '/onboarding-end';
+  static const ONBOARDING_START = '/onboarding-start';
 }

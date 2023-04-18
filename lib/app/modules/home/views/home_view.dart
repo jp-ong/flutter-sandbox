@@ -24,6 +24,10 @@ class HomeView extends GetView<HomeController> {
             onPressed: () => Get.toNamed(Routes.CREDENTIALS_FORM),
             child: const Text('Forms'),
           ),
+          OutlinedButton(
+            onPressed: () => Get.toNamed(Routes.ONBOARDING),
+            child: const Text('Onboarding'),
+          ),
         ],
       ),
     );

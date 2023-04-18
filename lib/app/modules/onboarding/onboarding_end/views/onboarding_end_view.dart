@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sandbox/app/routes/app_pages.dart';
 
 import 'package:get/get.dart';
 
@@ -10,13 +11,68 @@ class OnboardingEndView extends GetView<OnboardingEndController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('OnboardingEndView'),
-        centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
-      body: const Center(
-        child: Text(
-          'OnboardingEndView is working',
-          style: TextStyle(fontSize: 20),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Congratulations',
+                        style: Get.textTheme.headlineLarge,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  'You are onboarded. Go back home please.',
+                  style: Get.textTheme.bodyMedium,
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () => Get.offAndToNamed(Routes.ONBOARDING),
+                        child: const Text('Restart'),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () => Get.back(),
+                        child: const Text('Back to Step 2'),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () => Get.offAllNamed(Routes.HOME),
+                        child: const Text('Go Home'),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

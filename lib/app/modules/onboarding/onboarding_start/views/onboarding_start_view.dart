@@ -3,10 +3,10 @@ import 'package:flutter_sandbox/app/routes/app_pages.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/onboarding_1_controller.dart';
+import '../controllers/onboarding_start_controller.dart';
 
-class Onboarding1View extends GetView<Onboarding1Controller> {
-  const Onboarding1View({Key? key}) : super(key: key);
+class OnboardingStartView extends GetView<OnboardingStartController> {
+  const OnboardingStartView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class Onboarding1View extends GetView<Onboarding1Controller> {
                   children: [
                     Expanded(
                       child: Text(
-                        'Step 1',
+                        'Getting Started',
                         style: Get.textTheme.headlineLarge,
                       ),
                     ),
@@ -43,7 +43,7 @@ class Onboarding1View extends GetView<Onboarding1Controller> {
                     Expanded(
                       child: OutlinedButton(
                         onPressed: () => Get.back(),
-                        child: const Text('Back to Getting Started'),
+                        child: const Text('Back to Onboarding'),
                       ),
                     ),
                   ],
@@ -52,8 +52,8 @@ class Onboarding1View extends GetView<Onboarding1Controller> {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () => Get.toNamed(Routes.ONBOARDING_2),
-                        child: const Text('Proceed to step 2'),
+                        onPressed: () => Get.toNamed(Routes.ONBOARDING_1),
+                        child: const Text('Proceed to step 1'),
                       ),
                     ),
                   ],

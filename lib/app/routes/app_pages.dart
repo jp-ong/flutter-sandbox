@@ -13,6 +13,8 @@ import '../modules/onboarding/onboarding_2/bindings/onboarding_2_binding.dart';
 import '../modules/onboarding/onboarding_2/views/onboarding_2_view.dart';
 import '../modules/onboarding/onboarding_end/bindings/onboarding_end_binding.dart';
 import '../modules/onboarding/onboarding_end/views/onboarding_end_view.dart';
+import '../modules/onboarding/onboarding_start/bindings/onboarding_start_binding.dart';
+import '../modules/onboarding/onboarding_start/views/onboarding_start_view.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 import '../modules/profile_form/bindings/profile_form_binding.dart';
 import '../modules/profile_form/views/profile_form_view.dart';
@@ -66,6 +68,11 @@ class AppPages {
           name: _Paths.ONBOARDING_END,
           page: () => const OnboardingEndView(),
           binding: OnboardingEndBinding(),
+        ),
+        GetPage(
+          name: _Paths.ONBOARDING_START,
+          page: () => const OnboardingStartView(),
+          binding: OnboardingStartBinding(),
         ),
       ],
     ),

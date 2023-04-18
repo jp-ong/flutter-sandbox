@@ -38,6 +38,11 @@ void main() {
         fontSize: 16,
         color: Colors.black,
       ),
+      headlineLarge: TextStyle(
+        fontSize: 24,
+        color: Color.fromARGB(255, 100, 0, 255),
+        fontWeight: FontWeight.w700,
+      ),
       displayMedium: TextStyle(
         fontSize: 14,
         color: Colors.black87,
