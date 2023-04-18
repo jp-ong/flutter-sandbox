@@ -9,6 +9,10 @@ abstract class Routes {
   static const BIOMETRICS = _Paths.BIOMETRICS;
   static const PROFILE_FORM = _Paths.PROFILE_FORM;
   static const CREDENTIALS_FORM = _Paths.CREDENTIALS_FORM;
+  static const ONBOARDING = _Paths.ONBOARDING;
+  static const ONBOARDING_1 = _Paths.ONBOARDING + _Paths.ONBOARDING_1;
+  static const ONBOARDING_2 = _Paths.ONBOARDING + _Paths.ONBOARDING_2;
+  static const ONBOARDING_END = _Paths.ONBOARDING + _Paths.ONBOARDING_END;
 }
 
 abstract class _Paths {
@@ -17,4 +21,8 @@ abstract class _Paths {
   static const BIOMETRICS = '/biometrics';
   static const PROFILE_FORM = '/profile-form';
   static const CREDENTIALS_FORM = '/credentials-form';
+  static const ONBOARDING = '/onboarding';
+  static const ONBOARDING_1 = '/onboarding-1';
+  static const ONBOARDING_2 = '/onboarding-2';
+  static const ONBOARDING_END = '/onboarding-end';
 }
