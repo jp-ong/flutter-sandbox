@@ -18,9 +18,8 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
           centerTitle: true,
         ),
         body: Form(
-          onChanged: () => controller.onFormChange(),
           key: controller.credentialInfoKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
+          onChanged: () => controller.onFormChange(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -70,6 +69,7 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
         Text('Username', style: Get.textTheme.labelMedium),
         const SizedBox(height: 4),
         TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: controller.usernameController,
           decoration: const InputDecoration(),
           style: Get.textTheme.bodyMedium,
@@ -93,6 +93,7 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
         Text('Email', style: Get.textTheme.labelMedium),
         const SizedBox(height: 4),
         TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: controller.emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(),
@@ -113,6 +114,7 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
         Text('Password', style: Get.textTheme.labelMedium),
         const SizedBox(height: 4),
         TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: controller.passwordController,
           decoration: const InputDecoration(),
           obscureText: true,
@@ -131,6 +133,7 @@ class CredentialsFormView extends GetView<CredentialsFormController> {
         Text('Re-enter Password', style: Get.textTheme.labelMedium),
         const SizedBox(height: 4),
         TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: controller.passwordConfirmController,
           decoration: const InputDecoration(),
           obscureText: true,
