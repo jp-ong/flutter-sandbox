@@ -26,11 +26,15 @@ class BiometricsController extends GetxController {
     isCheckingDevice.value = true;
     await delay(seconds: 1);
 
-    auth.isDeviceSupported().then((bool isSupported) {
+    try {
+      bool isSupported = await auth.isDeviceSupported();
       supportState =
           isSupported ? SupportState.supported : SupportState.unsupported;
+    } on PlatformException {
+      supportState = SupportState.unsupported;
+    } finally {
       isCheckingDevice.value = false;
-    });
+    }
   }
 
   Future<void> checkBiometrics() async {
