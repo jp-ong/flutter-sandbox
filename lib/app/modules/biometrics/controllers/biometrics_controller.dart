@@ -70,8 +70,7 @@ class BiometricsController extends GetxController {
           AndroidAuthMessages(cancelButton: 'Use Password'),
           IOSAuthMessages(cancelButton: 'Use Password'),
         ],
-        options:
-            const AuthenticationOptions(stickyAuth: true, biometricOnly: true),
+        options: const AuthenticationOptions(stickyAuth: true),
       );
     } on PlatformException {
       authorized = 'Error';

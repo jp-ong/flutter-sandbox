@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/biometrics/bindings/biometrics_binding.dart';
 import '../modules/biometrics/views/biometrics_view.dart';
+import '../modules/chips/bindings/chips_binding.dart';
+import '../modules/chips/views/chips_view.dart';
 import '../modules/credentials_form/bindings/credentials_form_binding.dart';
 import '../modules/credentials_form/views/credentials_form_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -75,6 +77,11 @@ class AppPages {
           binding: OnboardingStartBinding(),
         ),
       ],
+    ),
+    GetPage(
+      name: _Paths.CHIPS,
+      page: () => const ChipsView(),
+      binding: ChipsBinding(),
     ),
   ];
 }

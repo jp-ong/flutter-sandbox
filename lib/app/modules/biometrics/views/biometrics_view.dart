@@ -44,17 +44,7 @@ class BiometricsView extends GetView<BiometricsController> {
               ),
               IconButton(
                 padding: const EdgeInsets.all(40),
-                icon: Visibility(
-                  replacement: const Center(
-                    child: SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    ),
-                  ),
-                  visible: controller.isAuthenticating.isFalse,
-                  child: const Icon(Icons.fingerprint),
-                ),
+                icon: const Icon(Icons.fingerprint),
                 iconSize: 128,
                 onPressed: controller.supportState == SupportState.supported
                     ? () => controller.authenticate()
