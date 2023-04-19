@@ -15,7 +15,7 @@ class BiometricsController extends GetxController {
   SupportState supportState = SupportState.unknown;
   bool canCheckBiometrics = false;
   List<BiometricType> availableBiometrics = [];
-  String authorized = 'Not Authorized';
+  RxString authorized = 'Not Authorized'.obs;
   RxBool isAuthenticating = false.obs;
   RxBool isCheckingDevice = false.obs;
   RxBool isCheckingBiometrics = false.obs;
@@ -24,7 +24,7 @@ class BiometricsController extends GetxController {
 
   Future<void> checkBiometricSupport() async {
     isCheckingDevice.value = true;
-    await delay(seconds: 1);
+    await delay(seconds: 0);
 
     try {
       bool isSupported = await auth.isDeviceSupported();
@@ -39,7 +39,7 @@ class BiometricsController extends GetxController {
 
   Future<void> checkBiometrics() async {
     isCheckingBiometrics.value = true;
-    await delay(seconds: 2);
+    await delay(seconds: 0);
     try {
       canCheckBiometrics = await auth.canCheckBiometrics;
     } on PlatformException {
@@ -51,7 +51,7 @@ class BiometricsController extends GetxController {
 
   Future<void> getAvailableBiometrics() async {
     isListingBiometrics.value = true;
-    await delay(seconds: 3);
+    await delay(seconds: 0);
     try {
       availableBiometrics = await auth.getAvailableBiometrics();
     } on PlatformException {
@@ -63,7 +63,7 @@ class BiometricsController extends GetxController {
 
   void authenticate() async {
     isAuthenticating.value = true;
-    authorized = 'Authenticating';
+    authorized.value = 'Authenticating';
 
     bool authenticated = false;
 
@@ -77,11 +77,10 @@ class BiometricsController extends GetxController {
         options: const AuthenticationOptions(stickyAuth: true),
       );
     } on PlatformException {
-      authorized = 'Error';
-    } finally {
-      authorized = authenticated ? 'Authorized' : 'Not Authorized';
-      isAuthenticating.value = false;
+      authorized.value = 'Error';
     }
+    authorized.value = authenticated ? 'Authorized' : 'Not Authorized';
+    isAuthenticating.value = false;
   }
 
   Future<void> delay({int seconds = 2}) {

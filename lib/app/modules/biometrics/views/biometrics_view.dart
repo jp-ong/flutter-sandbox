@@ -29,11 +29,11 @@ class BiometricsView extends GetView<BiometricsController> {
                       style: TextStyle(color: Colors.black54),
                     ),
                     TextSpan(
-                      text: controller.authorized,
+                      text: controller.authorized.value,
                       style: TextStyle(
-                        color: controller.authorized == 'Authorized'
+                        color: controller.authorized.value == 'Authorized'
                             ? Colors.green
-                            : controller.authorized == 'Authenticating'
+                            : controller.authorized.value == 'Authenticating'
                                 ? Get.theme.colorScheme.primary
                                 : Get.theme.colorScheme.error,
                         fontWeight: FontWeight.w700,
