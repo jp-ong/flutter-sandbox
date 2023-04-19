@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-enum Status {
-  verified,
-  needsAction,
-  revoked,
-  rejected,
-  expired,
-}
-
 class StatusBadge extends StatelessWidget {
-  final Status status;
-  final String label;
+  final String status;
   final bool? autofocus;
   final Widget? avatar;
   final Clip? clipBehavior;
@@ -21,6 +12,7 @@ class StatusBadge extends StatelessWidget {
   final double? elevation;
   final FocusNode? focusNode;
   final IconThemeData? iconTheme;
+  final Text? label;
   final TextStyle? labelStyle;
   final void Function()? onDeleted;
   final Color? shadowColor;
@@ -29,8 +21,7 @@ class StatusBadge extends StatelessWidget {
   final VisualDensity? visualDensity;
 
   const StatusBadge(
-    this.status,
-    this.label, {
+    this.status, {
     super.key,
     this.autofocus,
     this.avatar,
@@ -41,6 +32,7 @@ class StatusBadge extends StatelessWidget {
     this.elevation,
     this.focusNode,
     this.iconTheme,
+    this.label,
     this.labelStyle,
     this.onDeleted,
     this.shadowColor,
@@ -55,7 +47,7 @@ class StatusBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Chip chip(backgroundColor, color) {
+    Chip chip(backgroundColor, color, Text label) {
       return Chip(
         autofocus: autofocus ?? _defaultChip.autofocus,
         avatar: avatar ?? _defaultChip.avatar,
@@ -79,7 +71,7 @@ class StatusBadge extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
-        label: Text(label.capitalize ?? label),
+        label: this.label ?? label,
         labelStyle: labelStyle ??
             TextStyle(
               color: color,
@@ -90,17 +82,24 @@ class StatusBadge extends StatelessWidget {
     }
 
     switch (status) {
-      case Status.verified:
-        return chip(const Color(0xffE4F7EC), const Color(0xff3A843F));
-      case Status.needsAction:
-        return chip(const Color(0xffFCF7E1), const Color(0xffE89937));
-      case Status.revoked:
-        return chip(const Color(0xffE5F2FD), const Color(0xff3363BB));
-      case Status.rejected:
-        return chip(const Color(0xffF6E9E7), const Color(0xffC0492C));
-      case Status.expired:
+      case 'VERIFIED':
+        return chip(const Color(0xffE4F7EC), const Color(0xff3A843F),
+            const Text('Verified'));
+      case 'NEEDS_ACTION':
+        return chip(const Color(0xffFCF7E1), const Color(0xffE89937),
+            const Text('Needs Action'));
+      case 'REVOKED':
+        return chip(const Color(0xffE5F2FD), const Color(0xff3363BB),
+            const Text('Revoked'));
+      case 'REJECTED':
+        return chip(const Color(0xffF6E9E7), const Color(0xffC0492C),
+            const Text('Rejected'));
+      case 'EXPIRED':
+        return chip(const Color(0xffEEEEEE), const Color(0xff50535E),
+            const Text('Expired'));
       default:
-        return chip(const Color(0xffEEEEEE), const Color(0xff50535E));
+        return chip(const Color(0xffEEEEEE), const Color(0xff50535E),
+            const Text('Status'));
     }
   }
 }

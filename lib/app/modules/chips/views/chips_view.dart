@@ -25,15 +25,15 @@ class ChipsView extends GetView<ChipsController> {
       ),
       body: Column(
         children: const [
-          StatusBadge(Status.verified, 'Fully Verified'),
+          StatusBadge('VERIFIED'),
           SizedBox(height: 16),
-          StatusBadge(Status.needsAction, 'Needs Action'),
+          StatusBadge('NEEDS_ACTION'),
           SizedBox(height: 16),
-          StatusBadge(Status.revoked, 'Revoked'),
+          StatusBadge('REVOKED'),
           SizedBox(height: 16),
-          StatusBadge(Status.rejected, 'Rejected'),
+          StatusBadge('REJECTED'),
           SizedBox(height: 16),
-          StatusBadge(Status.expired, 'Expired'),
+          StatusBadge('EXPIRED'),
         ],
       ),
     );
