@@ -5,10 +5,12 @@ import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
+  const Color primaryColor = Color.fromARGB(255, 75, 0, 255);
+
   ThemeData lightThemeData = ThemeData(
     colorScheme: const ColorScheme(
       brightness: Brightness.light,
-      primary: Color.fromARGB(255, 100, 0, 255),
+      primary: primaryColor,
       onPrimary: Colors.white,
       secondary: Color.fromARGB(255, 255, 100, 100),
       onSecondary: Colors.white,
@@ -21,7 +23,7 @@ void main() {
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Color.fromARGB(255, 250, 250, 250),
-      foregroundColor: Color.fromARGB(255, 100, 0, 255),
+      foregroundColor: primaryColor,
       elevation: 0,
     ),
     textTheme: const TextTheme(
@@ -31,7 +33,7 @@ void main() {
       ),
       labelMedium: TextStyle(
         fontSize: 14,
-        color: Color.fromARGB(255, 100, 0, 255),
+        color: primaryColor,
         fontWeight: FontWeight.w700,
       ),
       bodyMedium: TextStyle(
@@ -40,7 +42,7 @@ void main() {
       ),
       headlineLarge: TextStyle(
         fontSize: 24,
-        color: Color.fromARGB(255, 100, 0, 255),
+        color: primaryColor,
         fontWeight: FontWeight.w700,
       ),
       displayMedium: TextStyle(

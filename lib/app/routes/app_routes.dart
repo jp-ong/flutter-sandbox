@@ -15,6 +15,9 @@ abstract class Routes {
   static const ONBOARDING_END = _Paths.ONBOARDING + _Paths.ONBOARDING_END;
   static const ONBOARDING_START = _Paths.ONBOARDING + _Paths.ONBOARDING_START;
   static const CHIPS = _Paths.CHIPS;
+  static const PROTECTED = _Paths.PROTECTED;
+  static const PASSWORD_AUTH = _Paths.PROTECTED + _Paths.PASSWORD_AUTH;
+  static const PROTECTED_SECTION = _Paths.PROTECTED + _Paths.PROTECTED_SECTION;
 }
 
 abstract class _Paths {
@@ -29,4 +32,7 @@ abstract class _Paths {
   static const ONBOARDING_END = '/onboarding-end';
   static const ONBOARDING_START = '/onboarding-start';
   static const CHIPS = '/chips';
+  static const PROTECTED = '/protected';
+  static const PASSWORD_AUTH = '/password-auth';
+  static const PROTECTED_SECTION = '/protected-section';
 }

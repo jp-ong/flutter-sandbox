@@ -20,6 +20,12 @@ import '../modules/onboarding/onboarding_start/views/onboarding_start_view.dart'
 import '../modules/onboarding/views/onboarding_view.dart';
 import '../modules/profile_form/bindings/profile_form_binding.dart';
 import '../modules/profile_form/views/profile_form_view.dart';
+import '../modules/protected/bindings/protected_binding.dart';
+import '../modules/protected/password_auth/bindings/password_auth_binding.dart';
+import '../modules/protected/password_auth/views/password_auth_view.dart';
+import '../modules/protected/protected_section/bindings/protected_section_binding.dart';
+import '../modules/protected/protected_section/views/protected_section_view.dart';
+import '../modules/protected/views/protected_view.dart';
 
 // ignore_for_file: constant_identifier_names
 
@@ -82,6 +88,23 @@ class AppPages {
       name: _Paths.CHIPS,
       page: () => const ChipsView(),
       binding: ChipsBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROTECTED,
+      page: () => const ProtectedView(),
+      binding: ProtectedBinding(),
+      children: [
+        GetPage(
+          name: _Paths.PASSWORD_AUTH,
+          page: () => const PasswordAuthView(),
+          binding: PasswordAuthBinding(),
+        ),
+        GetPage(
+          name: _Paths.PROTECTED_SECTION,
+          page: () => const ProtectedSectionView(),
+          binding: ProtectedSectionBinding(),
+        ),
+      ],
     ),
   ];
 }
