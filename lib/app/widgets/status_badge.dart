@@ -79,9 +79,7 @@ class StatusBadge extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
-        label: Text(
-          label.capitalize ?? '',
-        ),
+        label: Text(label.capitalize ?? label),
         labelStyle: labelStyle ??
             TextStyle(
               color: color,
