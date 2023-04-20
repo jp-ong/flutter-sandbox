@@ -58,7 +58,7 @@ void main() {
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(0, 40),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ),
     ),
@@ -66,7 +66,7 @@ void main() {
       style: OutlinedButton.styleFrom(
         minimumSize: const Size(0, 40),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ),
     ),
@@ -74,7 +74,7 @@ void main() {
       style: TextButton.styleFrom(
         minimumSize: const Size(0, 40),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ),
     ),

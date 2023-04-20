@@ -16,23 +16,23 @@ class HomeView extends GetView<HomeController> {
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [
-          OutlinedButton(
+          ElevatedButton(
             onPressed: () => Get.toNamed(Routes.BIOMETRICS),
             child: const Text('Biometrics'),
           ),
-          OutlinedButton(
+          ElevatedButton(
             onPressed: () => Get.toNamed(Routes.CREDENTIALS_FORM),
             child: const Text('Forms'),
           ),
-          OutlinedButton(
+          ElevatedButton(
             onPressed: () => Get.toNamed(Routes.ONBOARDING),
             child: const Text('Onboarding'),
           ),
-          OutlinedButton(
+          ElevatedButton(
             onPressed: () => Get.toNamed(Routes.CHIPS),
             child: const Text('Chips'),
           ),
-          OutlinedButton(
+          ElevatedButton(
             onPressed: () => Get.toNamed(Routes.PROTECTED),
             child: const Text('Protected'),
           ),
