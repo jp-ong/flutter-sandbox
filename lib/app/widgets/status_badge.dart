@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class StatusBadge extends StatelessWidget {
   final String status;
@@ -20,6 +19,7 @@ class StatusBadge extends StatelessWidget {
   final Color? surfaceTintColor;
   final VisualDensity? visualDensity;
 
+  /// Status values: `'VERIFIED'` | `'NEEDS_ACTION'` | `'REVOKED'` | `'REJECTED'` | `'EXPIRED'`
   const StatusBadge(
     this.status, {
     super.key,
