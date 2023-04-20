@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/app/routes/app_pages.dart';
 
 import 'package:get/get.dart';
+import 'package:local_auth/local_auth.dart';
 
 import '../controllers/protected_controller.dart';
 
@@ -16,7 +17,12 @@ class ProtectedView extends GetView<ProtectedController> {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => Get.toNamed(Routes.PASSWORD_AUTH),
+          onPressed: () {
+            controller.localAuthenticationController.authenticate(
+              onSuccess: () => Get.toNamed(Routes.PROTECTED_SECTION),
+              onFail: () => Get.toNamed(Routes.PASSWORD_AUTH),
+            );
+          },
           child: const Text('Access Protected Page'),
         ),
       ),

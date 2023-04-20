@@ -1,23 +1,7 @@
+import 'package:flutter_sandbox/app/controllers/local_authentication_controller.dart';
 import 'package:get/get.dart';
 
 class ProtectedController extends GetxController {
-  //TODO: Implement ProtectedController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  final LocalAuthenticationController localAuthenticationController =
+      Get.find<LocalAuthenticationController>();
 }
