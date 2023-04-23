@@ -56,6 +56,7 @@ void main() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: const Size(0, 40),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -64,6 +65,7 @@ void main() {
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: const Size(0, 40),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -72,6 +74,7 @@ void main() {
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: const Size(0, 40),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(4)),

@@ -20,18 +20,22 @@ class HomeView extends GetView<HomeController> {
             onPressed: () => Get.toNamed(Routes.BIOMETRICS),
             child: const Text('Biometrics'),
           ),
+          const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () => Get.toNamed(Routes.CREDENTIALS_FORM),
             child: const Text('Forms'),
           ),
+          const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () => Get.toNamed(Routes.ONBOARDING),
             child: const Text('Onboarding'),
           ),
+          const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () => Get.toNamed(Routes.CHIPS),
             child: const Text('Chips'),
           ),
+          const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () => Get.toNamed(Routes.PROTECTED),
             child: const Text('Protected'),
