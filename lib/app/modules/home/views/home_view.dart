@@ -5,42 +5,42 @@ import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 
+class FeatureButton {
+  final String route;
+  final String label;
+
+  FeatureButton({required this.route, required this.label});
+}
+
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
+
+  static List<FeatureButton> featureButtons = [
+    FeatureButton(label: 'Biometrics', route: Routes.BIOMETRICS),
+    FeatureButton(label: 'Forms', route: Routes.CREDENTIALS_FORM),
+    FeatureButton(label: 'Onboarding', route: Routes.ONBOARDING),
+    FeatureButton(label: 'Chips', route: Routes.CHIPS),
+    FeatureButton(label: 'Protected', route: Routes.PROTECTED),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sandbox'),
       ),
-      body: ListView(
+      body: ListView.separated(
         padding: const EdgeInsets.all(8),
-        children: [
-          ElevatedButton(
-            onPressed: () => Get.toNamed(Routes.BIOMETRICS),
-            child: const Text('Biometrics'),
-          ),
-          const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () => Get.toNamed(Routes.CREDENTIALS_FORM),
-            child: const Text('Forms'),
-          ),
-          const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () => Get.toNamed(Routes.ONBOARDING),
-            child: const Text('Onboarding'),
-          ),
-          const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () => Get.toNamed(Routes.CHIPS),
-            child: const Text('Chips'),
-          ),
-          const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () => Get.toNamed(Routes.PROTECTED),
-            child: const Text('Protected'),
-          ),
-        ],
+        itemCount: featureButtons.length,
+        separatorBuilder: (context, index) {
+          return const SizedBox(height: 8);
+        },
+        itemBuilder: (context, index) {
+          return ElevatedButton(
+            onPressed: () => Get.toNamed(featureButtons[index].route),
+            child: Text(featureButtons[index].label),
+          );
+        },
       ),
     );
   }
