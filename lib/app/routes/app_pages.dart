@@ -6,6 +6,8 @@ import '../modules/chips/bindings/chips_binding.dart';
 import '../modules/chips/views/chips_view.dart';
 import '../modules/credentials_form/bindings/credentials_form_binding.dart';
 import '../modules/credentials_form/views/credentials_form_view.dart';
+import '../modules/export_pdf/bindings/export_pdf_binding.dart';
+import '../modules/export_pdf/views/export_pdf_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
@@ -105,6 +107,11 @@ class AppPages {
           binding: ProtectedSectionBinding(),
         ),
       ],
+    ),
+    GetPage(
+      name: _Paths.EXPORT_PDF,
+      page: () => const ExportPdfView(),
+      binding: ExportPdfBinding(),
     ),
   ];
 }

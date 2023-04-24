@@ -13,6 +13,7 @@ dependencies:
   local_auth_android: 1.0.21
   flutter: 
     sdk: flutter
+  pdf: ^3.10.1
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
