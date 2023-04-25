@@ -14,6 +14,10 @@ dependencies:
   flutter: 
     sdk: flutter
   pdf: ^3.10.1
+  path_provider: ^2.0.14
+  printing: ^5.10.3
+  path_provider_android: ^2.0.25
+  path_provider_ios: ^2.0.11
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
