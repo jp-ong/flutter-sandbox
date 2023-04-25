@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/app/widgets/status_badge.dart';
+import 'package:flutter_sandbox/app/widgets/status_text.dart';
 
 import 'package:get/get.dart';
 
@@ -24,16 +25,28 @@ class ChipsView extends GetView<ChipsController> {
         centerTitle: true,
       ),
       body: Column(
-        children: const [
-          StatusBadge('VERIFIED'),
-          SizedBox(height: 16),
-          StatusBadge('NEEDS_ACTION'),
-          SizedBox(height: 16),
-          StatusBadge('REVOKED'),
-          SizedBox(height: 16),
-          StatusBadge('REJECTED'),
-          SizedBox(height: 16),
-          StatusBadge('EXPIRED'),
+        children: [
+          const StatusBadge('VERIFIED'),
+          const SizedBox(height: 16),
+          const StatusBadge('NEEDS_ACTION'),
+          const SizedBox(height: 16),
+          const StatusBadge('REVOKED'),
+          const SizedBox(height: 16),
+          const StatusBadge('REJECTED'),
+          const SizedBox(height: 16),
+          const StatusBadge('EXPIRED'),
+          const SizedBox(height: 16),
+          RichText(
+            text: TextSpan(
+              children: [
+                statusTextSpan('VERIFIED'),
+                statusTextSpan('NEEDS_ACTION'),
+                statusTextSpan('REVOKED'),
+                statusTextSpan('REJECTED'),
+                statusTextSpan('EXPIRED'),
+              ],
+            ),
+          )
         ],
       ),
     );
