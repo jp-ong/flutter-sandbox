@@ -8,6 +8,16 @@ import '../modules/credentials_form/bindings/credentials_form_binding.dart';
 import '../modules/credentials_form/views/credentials_form_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/ocr/bindings/ocr_binding.dart';
+import '../modules/ocr/ocr_id/bindings/ocr_id_binding.dart';
+import '../modules/ocr/ocr_id/views/ocr_id_view.dart';
+import '../modules/ocr/ocr_ready/bindings/ocr_ready_binding.dart';
+import '../modules/ocr/ocr_ready/views/ocr_ready_view.dart';
+import '../modules/ocr/ocr_start/bindings/ocr_start_binding.dart';
+import '../modules/ocr/ocr_start/views/ocr_start_view.dart';
+import '../modules/ocr/ocr_wallet/bindings/ocr_wallet_binding.dart';
+import '../modules/ocr/ocr_wallet/views/ocr_wallet_view.dart';
+import '../modules/ocr/views/ocr_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/onboarding_1/bindings/onboarding_1_binding.dart';
 import '../modules/onboarding/onboarding_1/views/onboarding_1_view.dart';
@@ -112,6 +122,33 @@ class AppPages {
       name: _Paths.PERIPHERALS,
       page: () => const PeripheralsView(),
       binding: PeripheralsBinding(),
+    ),
+    GetPage(
+      name: _Paths.OCR,
+      page: () => const OcrView(),
+      binding: OcrBinding(),
+      children: [
+        GetPage(
+          name: _Paths.OCR_WALLET,
+          page: () => const OcrWalletView(),
+          binding: OcrWalletBinding(),
+        ),
+        GetPage(
+          name: _Paths.OCR_START,
+          page: () => const OcrStartView(),
+          binding: OcrStartBinding(),
+        ),
+        GetPage(
+          name: _Paths.OCR_READY,
+          page: () => const OcrReadyView(),
+          binding: OcrReadyBinding(),
+        ),
+        GetPage(
+          name: _Paths.OCR_ID,
+          page: () => const OcrIdView(),
+          binding: OcrIdBinding(),
+        ),
+      ],
     ),
   ];
 }

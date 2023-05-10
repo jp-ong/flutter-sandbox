@@ -19,6 +19,11 @@ abstract class Routes {
   static const PASSWORD_AUTH = _Paths.PROTECTED + _Paths.PASSWORD_AUTH;
   static const PROTECTED_SECTION = _Paths.PROTECTED + _Paths.PROTECTED_SECTION;
   static const PERIPHERALS = _Paths.PERIPHERALS;
+  static const OCR = _Paths.OCR;
+  static const OCR_WALLET = _Paths.OCR + _Paths.OCR_WALLET;
+  static const OCR_START = _Paths.OCR + _Paths.OCR_START;
+  static const OCR_READY = _Paths.OCR + _Paths.OCR_READY;
+  static const OCR_ID = _Paths.OCR + _Paths.OCR_ID;
 }
 
 abstract class _Paths {
@@ -37,4 +42,9 @@ abstract class _Paths {
   static const PASSWORD_AUTH = '/password-auth';
   static const PROTECTED_SECTION = '/protected-section';
   static const PERIPHERALS = '/peripherals';
+  static const OCR = '/ocr';
+  static const OCR_WALLET = '/ocr-wallet';
+  static const OCR_START = '/ocr-start';
+  static const OCR_READY = '/ocr-ready';
+  static const OCR_ID = '/ocr-id';
 }

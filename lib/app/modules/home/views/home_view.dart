@@ -22,6 +22,7 @@ class HomeView extends GetView<HomeController> {
     FeatureButton(label: 'Chips', route: Routes.CHIPS),
     FeatureButton(label: 'Protected', route: Routes.PROTECTED),
     FeatureButton(label: 'Peripherals', route: Routes.PERIPHERALS),
+    FeatureButton(label: 'OCR Flow', route: Routes.OCR),
   ];
 
   @override
