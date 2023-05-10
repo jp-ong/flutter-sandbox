@@ -18,8 +18,8 @@ import '../modules/onboarding/onboarding_end/views/onboarding_end_view.dart';
 import '../modules/onboarding/onboarding_start/bindings/onboarding_start_binding.dart';
 import '../modules/onboarding/onboarding_start/views/onboarding_start_view.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
-import '../modules/peripheral/bindings/peripheral_binding.dart';
-import '../modules/peripheral/views/peripheral_view.dart';
+import '../modules/peripherals/bindings/peripherals_binding.dart';
+import '../modules/peripherals/views/peripherals_view.dart';
 import '../modules/profile_form/bindings/profile_form_binding.dart';
 import '../modules/profile_form/views/profile_form_view.dart';
 import '../modules/protected/bindings/protected_binding.dart';
@@ -109,9 +109,9 @@ class AppPages {
       ],
     ),
     GetPage(
-      name: _Paths.PERIPHERAL,
-      page: () => const PeripheralView(),
-      binding: PeripheralBinding(),
+      name: _Paths.PERIPHERALS,
+      page: () => const PeripheralsView(),
+      binding: PeripheralsBinding(),
     ),
   ];
 }

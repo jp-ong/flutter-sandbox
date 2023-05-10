@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/peripheral_controller.dart';
+import '../controllers/peripherals_controller.dart';
 
-class PeripheralView extends GetView<PeripheralController> {
-  const PeripheralView({Key? key}) : super(key: key);
+class PeripheralsView extends GetView<PeripheralsController> {
+  const PeripheralsView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

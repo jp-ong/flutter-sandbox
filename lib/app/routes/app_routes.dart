@@ -18,7 +18,7 @@ abstract class Routes {
   static const PROTECTED = _Paths.PROTECTED;
   static const PASSWORD_AUTH = _Paths.PROTECTED + _Paths.PASSWORD_AUTH;
   static const PROTECTED_SECTION = _Paths.PROTECTED + _Paths.PROTECTED_SECTION;
-  static const PERIPHERAL = _Paths.PERIPHERAL;
+  static const PERIPHERALS = _Paths.PERIPHERALS;
 }
 
 abstract class _Paths {
@@ -36,5 +36,5 @@ abstract class _Paths {
   static const PROTECTED = '/protected';
   static const PASSWORD_AUTH = '/password-auth';
   static const PROTECTED_SECTION = '/protected-section';
-  static const PERIPHERAL = '/peripheral';
+  static const PERIPHERALS = '/peripherals';
 }
